@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './pages/login_page.dart';
+import './pages/register.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: myColor,
       ),
-      home: const LoginPage(title: 'E-deo'),
+      home: const RegisterPage(title:'register'),
     );
   }
 }

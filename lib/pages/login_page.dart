@@ -27,35 +27,6 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     var largeur = MediaQuery.of(context).size.width;
     var longueur = MediaQuery.of(context).size.height;
-    var logo = Expanded(
-        child:Container(
-
-      color: Color(0xFF2e64ab),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Image.asset(
-            'images/logo.png',
-            height: 80,
-            width: 80,
-          ),
-          SizedBox(height: 16),
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              "LOGO\n“We can’t help everyone but\n everyone can help\n someone”",
-              style: TextStyle(
-                fontSize: 20,
-                color: Color(0xFFF0F0F0),
-                fontFamily: 'regular',
-              ),
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-            ),
-          )
-        ],
-      ),
-    ));
     return Scaffold(
       body: Container(
         height: longueur,
