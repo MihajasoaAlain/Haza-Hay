@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vonjeo/pages/register.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, required this.title});
 
@@ -28,6 +30,7 @@ class _LoginPageState extends State<LoginPage> {
     var largeur = MediaQuery.of(context).size.width;
     var longueur = MediaQuery.of(context).size.height;
     return Scaffold(
+      
       body: Container(
         height: longueur,
         decoration: BoxDecoration(
@@ -44,7 +47,8 @@ class _LoginPageState extends State<LoginPage> {
             children: <Widget>[
               SizedBox(height: 10), // Ajout d'une marge au-dessus de l'image
               Container(
-                height: 150, // Ajuster la hauteur du Container selon vos besoins
+                height:
+                    150, // Ajuster la hauteur du Container selon vos besoins
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -72,13 +76,15 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 16),
 
               Padding(
-                padding: EdgeInsets.symmetric(vertical:16, horizontal: 16),
+                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                 child: Container(
                   width: double.infinity,
-                  padding: EdgeInsets.all(16.0), // Ajout d'une marge intérieure au conteneur
+                  padding: EdgeInsets.all(
+                      16.0), // Ajout d'une marge intérieure au conteneur
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0), // Bords arrondis pour le conteneur
+                    borderRadius: BorderRadius.circular(
+                        10.0), // Bords arrondis pour le conteneur
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -95,9 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                         textAlign: TextAlign.center,
                         overflow: TextOverflow.ellipsis,
                       ),
-
                       SizedBox(height: 8),
-
                       Align(
                         alignment: Alignment.topLeft,
                         child: Text(
@@ -111,7 +115,6 @@ class _LoginPageState extends State<LoginPage> {
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-
                       TextField(
                         controller: emailController,
                         decoration: InputDecoration(
@@ -121,9 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
-
                       SizedBox(height: 8),
-
                       Align(
                         alignment: Alignment.topLeft,
                         child: Row(
@@ -152,7 +153,6 @@ class _LoginPageState extends State<LoginPage> {
                           ],
                         ),
                       ),
-
                       TextField(
                         controller: passwordController,
                         decoration: InputDecoration(
@@ -161,7 +161,9 @@ class _LoginPageState extends State<LoginPage> {
                             borderRadius: BorderRadius.circular(50.0),
                           ),
                           suffixIcon: IconButton(
-                            icon: Icon(_isPasswordVisible ? Icons.visibility : Icons.visibility_off),
+                            icon: Icon(_isPasswordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off),
                             onPressed: () {
                               setState(() {
                                 _isPasswordVisible = !_isPasswordVisible;
@@ -171,17 +173,13 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         obscureText: !_isPasswordVisible,
                       ),
-
                       SizedBox(height: 16),
-
                       Container(
                         width: double.infinity,
                         height: 50.0,
                         margin: EdgeInsets.symmetric(vertical: 10.0),
                         child: ElevatedButton(
-                          onPressed: () {
-                            // Fonction onPressed du bouton
-                          },
+                          onPressed:toNewPage,
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(25.0),
@@ -190,7 +188,6 @@ class _LoginPageState extends State<LoginPage> {
                           child: Text('Log in'),
                         ),
                       ),
-
                       Stack(
                         alignment: Alignment.center,
                         children: [
@@ -201,7 +198,9 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           Container(
                             color: Colors.white, // Fond blanc pour le texte
-                            padding: EdgeInsets.symmetric(horizontal: 16), // Marge intérieure pour le conteneur
+                            padding: EdgeInsets.symmetric(
+                                horizontal:
+                                    16), // Marge intérieure pour le conteneur
                             child: Text(
                               "Don't have an account?",
                               style: TextStyle(
@@ -212,17 +211,15 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ],
                       ),
-
                       Container(
                         width: double.infinity,
                         height: 50.0,
                         margin: EdgeInsets.symmetric(vertical: 10.0),
                         child: ElevatedButton(
-                          onPressed: () {
-                            // Fonction onPressed du bouton
-                          },
+                          onPressed: toNewPage,
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.white, // Utilisation du même fond blanc que le texte
+                            primary: Colors
+                                .white, // Utilisation du même fond blanc que le texte
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(25.0),
                             ),
@@ -245,5 +242,12 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  void toNewPage() {
+    Navigator.push(context,
+        new MaterialPageRoute(builder: (BuildContext context) {
+      return new RegisterPage(title: "register");
+    }));
   }
 }
