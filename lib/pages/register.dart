@@ -3,6 +3,7 @@ import './login_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key, required this.title}) : super(key: key);
+  
 
   final String title;
 
